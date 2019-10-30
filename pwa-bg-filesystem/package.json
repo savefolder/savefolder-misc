@@ -1,0 +1,11 @@
+{
+  "name": "pwa-bg-filesystem",
+  "main": "index.js",
+  "scripts": {
+    "serve": "parcel source/index.html --port 80 --open"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}

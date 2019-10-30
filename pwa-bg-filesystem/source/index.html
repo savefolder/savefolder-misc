@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PWA Background Filesystem</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="left">
+        <p style="margin-bottom: 3rem; font-size: 1rem">
+            The goal of this demo is to check whether if it's possible to modify
+            native file contents from service worker while pwa is minimized (running in background) <br><br>
+            What's happening: <br>
+            1. Page requests native file handle with "Save as..." dialog <br>
+            2. You, or anyone else in the internet presses "Switch image" button <br>
+            3. [WIP] Everyone is notified about this via websocket <br>
+            4. [WIP] Service worker updates file to match freshly selected image <br>
+        </p>
+        <p id="log">Loading...</p>
+    </div>
+    <div class="right">
+        <img id="image" src="images/a.png" alt="image">
+        <div id="button" class="button">Link file handle</div>
+    </div>
+</body>
+</html>
