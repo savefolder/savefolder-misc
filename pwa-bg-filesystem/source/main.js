@@ -46,6 +46,7 @@ class App {
             let message = 'Filesystem API not supported';
             this.$log.innerText = message;
             this.$log.style.color = '#f55';
+            this.$button.style.display = 'none';
             throw new Error(message);
         }
     }
@@ -78,10 +79,16 @@ class App {
 
     async writeCurrent() {
         if (!this.handle) return;
-        let writer = await this.handle.createWriter();
-        await writer.truncate(0);
-        await writer.write(0, this.images[+this.state]);
-        await writer.close();
+        try {
+            let writer = await this.handle.createWriter();
+            await writer.truncate(0);
+            await writer.write(0, this.images[+this.state]);
+            await writer.close();
+        } catch (err) {
+            this.$log.innerText = err.message;
+            this.$log.style.color = '#f55';
+            throw err;
+        }
 
         let message = `Synced image ${'AB'[+this.state]} with filesystem`;
         this.$log.innerText = message;
